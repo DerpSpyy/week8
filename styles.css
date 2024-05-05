@@ -1,0 +1,128 @@
+/* Base Styles */
+body {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+header, nav, section, main, aside, footer {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+}
+
+.header {
+    grid-area: header;
+    background-color: black;
+}
+
+.menu {
+    grid-area: menu;
+    background-color: red;
+}
+
+.hero {
+    grid-area: hero;
+    background-color: blue;
+}
+
+.main {
+    grid-area: main;
+    background-color: maroon;
+}
+
+.extra {
+    grid-area: extra;
+    background-color: green;
+}
+
+.image {
+    grid-area: image;
+    background-color: lavender;
+}
+
+.banner {
+    grid-area: banner;
+    background-color: orange;
+}
+
+/* Mobile Layout */
+@media (max-width: 599px) {
+    body {
+        grid-template-areas:
+            "header"
+            "menu"
+            "hero"
+            "main"
+            "banner"
+            "extra"
+            "image";
+    }
+
+    .hero {
+        height: 250px;
+    }
+
+    .main {
+        height: 200px;
+    }
+}
+
+/* Tablet Layout */
+@media (min-width: 600px) and (max-width: 1024px) {
+    body {
+        grid-template-areas:
+            "header header"
+            "hero hero"
+            "menu main"
+            "banner extra"
+            "banner image";
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .main {
+        height: 350px;
+    }
+
+    .extra, .image {
+        height: 200px; /* Align extra and image horizontally */
+    }
+
+    .menu {
+        height: 100%; /* Menu occupies the entire left side */
+    }
+}
+
+/* Desktop Layout */
+@media (min-width: 1025px) {
+    body {
+        grid-template-areas:
+            "header menu"
+            "hero hero"
+            "main image"
+            "main extra"
+            "banner banner";
+        grid-template-columns: 2fr 1fr;
+    }
+
+    .hero {
+        height: 400px;
+    }
+
+    .main {
+        height: 350px;
+    }
+
+    .extra, .image {
+        height: 200px;
+    }
+}
